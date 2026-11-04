@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { CalendarDays, MapPin, Music2, VolumeX, Heart, ArrowDown, ExternalLink } from 'lucide-react'
+import { CalendarDays, MapPin, Music2, VolumeX, Heart, ArrowDown, ExternalLink, Instagram, Send, MessageCircle } from 'lucide-react'
 
-import { wedding, schedule, images, text, display, startISO, endISO } from './wedding.config.js'
+import { wedding, schedule, credit, images, text, display, startISO, endISO } from './wedding.config.js'
 import RsvpForm from './RsvpForm.jsx'
 
 function getCountdown() {
@@ -198,6 +198,16 @@ function App() {
     </section>
 
     <footer className="footer"><div className="footer-flower">✿</div><p className="eyebrow">{text.footerEyebrow}</p><p className="script footer-names">{wedding.groom} <span>&</span> {wedding.bride}</p><p className="footer-date">{display.numeric} <span>—</span> {display.where.toUpperCase()}</p><p className="footer-thanks">{text.footerThanks}</p><Heart size={15} strokeWidth={1.2}/></footer>
+
+    <div className="credit">
+      <p className="credit-badge">{text.creditBy} {credit.name}</p>
+      <div className="credit-links">
+        {credit.whatsapp && <a href={credit.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp"><MessageCircle size={18}/></a>}
+        {credit.telegram && <a href={credit.telegram} target="_blank" rel="noreferrer" aria-label="Telegram"><Send size={18}/></a>}
+        {credit.instagram && <a href={credit.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={18}/></a>}
+      </div>
+      <p className="credit-copy">© {new Date().getFullYear()} {credit.name}. {text.creditRights}</p>
+    </div>
 
     {wedding.musicUrl && <>
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}${wedding.musicUrl}`} loop preload="auto" onPlay={() => { setMuted(false); setPlaying(true) }} onPause={() => { setMuted(true); setPlaying(false) }} onError={e => console.error('Music file not found or unsupported:', e.currentTarget.src)} />

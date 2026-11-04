@@ -48,3 +48,14 @@
 .order-divider{width:1px;height:48px;background:#9b9f83;margin:26px 0}
 .order-time{font-family:'Playfair Display',serif;letter-spacing:.08em;color:#5a2f27;margin:0 0 8px;font-size:1rem}
 .order-name{text-transform:uppercase;letter-spacing:.14em;color:#4a3a34;font-size:.9rem;margin:0 0 6px}
+
+/* Designer credit */
+.credit{background:#f1efe4;text-align:center;padding:28px 20px 24px}
+.credit-badge{position:relative;display:inline-block;margin:0 0 18px;padding:9px 40px;border:1px solid #b9ab8c;outline:1px solid #d3c9b0;outline-offset:3px;font-family:'Playfair Display',serif;font-size:.8rem;letter-spacing:.06em;color:#7a6a58}
+.credit-badge::before,.credit-badge::after{content:'';position:absolute;top:50%;width:8px;height:8px;border:1px solid #b9ab8c;transform:translateY(-50%)}
+.credit-badge::before{left:12px}
+.credit-badge::after{right:12px}
+.credit-links{display:flex;justify-content:center;gap:24px;margin-bottom:14px}
+.credit-links a{color:#6b4a3a;display:grid;place-items:center;transition:color .2s}
+.credit-links a:hover{color:#a0844f}
+.credit-copy{font-family:'Playfair Display',serif;font-size:.7rem;letter-spacing:.02em;color:#7a6a58;margin:0}

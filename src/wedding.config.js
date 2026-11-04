@@ -93,8 +93,21 @@ export const schedule = [
   { time: '10:00 PM', title: 'PARTY & ENTERTAINMENT' },
 ]
 
+// ---------- Designer credit (footer strip) ----------
+// Set any link to '' to hide that icon.
+export const credit = {
+  name: 'MoDESIGNATION',
+  instagram: 'https://www.instagram.com/lvory.invitations/',
+  whatsapp: 'https://wa.me/201113005575',
+  telegram: 'https://t.me/+201113005575',
+}
+
 // ---------- Texts ----------
 export const text = {
+  // Designer credit
+  creditBy: 'DESIGNED BY',
+  creditRights: 'All rights reserved',
+
   // Header navigation
   navStory: 'Our Story',
   navDetails: 'The Day',
