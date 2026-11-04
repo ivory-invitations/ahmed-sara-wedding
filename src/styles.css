@@ -40,3 +40,11 @@
 .rsvp-sent h3{font-family:'Playfair Display',serif;font-weight:400;font-size:1.8rem;margin:0 0 8px}
 .rsvp-sent p{font-family:'Playfair Display',serif;color:#747769;line-height:1.7;font-size:.95rem;margin-bottom:12px}
 @media(max-width:760px){.rsvp-form input[type=text],.rsvp-form select,.rsvp-form textarea{font-size:16px}}
+
+/* Order of the Day */
+.order-title{font-family:'Great Vibes',cursive;font-weight:400;color:#7a3b2e}
+.order-list{max-width:520px;margin:0 auto;text-align:center}
+.order-item{display:flex;flex-direction:column;align-items:center}
+.order-divider{width:1px;height:48px;background:#9b9f83;margin:26px 0}
+.order-time{font-family:'Playfair Display',serif;letter-spacing:.08em;color:#5a2f27;margin:0 0 8px;font-size:1rem}
+.order-name{text-transform:uppercase;letter-spacing:.14em;color:#4a3a34;font-size:.9rem;margin:0 0 6px}

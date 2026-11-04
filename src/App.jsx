@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { CalendarDays, MapPin, Music2, VolumeX, Heart, ArrowDown, ExternalLink } from 'lucide-react'
 
-import { wedding, photos, images, text, display, startISO, endISO } from './wedding.config.js'
+import { wedding, schedule, images, text, display, startISO, endISO } from './wedding.config.js'
 import RsvpForm from './RsvpForm.jsx'
 
 function getCountdown() {
@@ -47,7 +47,6 @@ function App() {
   const [opened, setOpened] = useState(false)
   const [countdown, setCountdown] = useState(getCountdown)
   const [muted, setMuted] = useState(true)
-  const [galleryImage, setGalleryImage] = useState(null)
   const [playing, setPlaying] = useState(false)
   const audioRef = useRef(null)
   const videoRef = useRef(null)
@@ -179,9 +178,15 @@ function App() {
     </section>
 
     <section className="gallery-section section-pad" id="gallery">
-      <div className="section-heading"><p className="eyebrow">{text.galleryEyebrow}</p><h2>{text.galleryTitle[0]} <em>{text.galleryTitle[1]}</em></h2><p>{text.gallerySub}</p></div>
-      <div className="gallery-grid">{photos.map((photo, i) => <button className={`gallery-item ${photo.className}`} key={photo.src} onClick={() => setGalleryImage(photo)} aria-label={`${text.viewPhoto}: ${photo.alt}`}><img src={photo.src} alt={photo.alt} loading="lazy"/><span className="gallery-number">0{i + 1}</span></button>)}</div>
-      {text.galleryNote && <p className="gallery-note">{text.galleryNote}</p>}
+      <div className="section-heading"><h2 className="order-title">{text.galleryTitle[0]}</h2><p>{text.gallerySub}</p></div>
+      <div className="order-list">
+        {schedule.map((item, i) => <div className="order-item" key={item.time}>
+          {i > 0 && <span className="order-divider" />}
+          <p className="order-time">{item.time}</p>
+          <p className="order-name">{item.title}</p>
+          {item.lines?.map((l) => <p className="order-name" key={l}>{l}</p>)}
+        </div>)}
+      </div>
     </section>
 
     <section className="rsvp-section" id="rsvp">
@@ -198,8 +203,6 @@ function App() {
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}${wedding.musicUrl}`} loop preload="auto" onPlay={() => { setMuted(false); setPlaying(true) }} onPause={() => { setMuted(true); setPlaying(false) }} onError={e => console.error('Music file not found or unsupported:', e.currentTarget.src)} />
       <button className={`floating-music ${playing && !muted ? 'is-playing' : ''}`} onClick={toggleMusic} aria-label={muted ? text.musicOn : text.musicOff}>{muted ? <VolumeX size={18}/> : <Music2 size={18}/>}</button>
     </>}
-
-    {galleryImage && <div className="lightbox" role="dialog" aria-modal="true" aria-label={text.photoViewer} onClick={() => setGalleryImage(null)}><button className="lightbox-close" onClick={() => setGalleryImage(null)} aria-label={text.closePhoto}>×</button><img src={galleryImage.src} alt={galleryImage.alt} onClick={e => e.stopPropagation()}/><p>{galleryImage.alt}</p></div>}
   </main>
 }
 

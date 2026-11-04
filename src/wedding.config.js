@@ -4,19 +4,19 @@
 // =====================================================
 
 export const wedding = {
-  groom: 'Shehab',
-  bride: 'Heba',
+  groom: 'Ahmed',
+  bride: 'Sara',
 
   // Date & time (local time at the venue)
-  date: '2026-12-05',      // YYYY-MM-DD
+  date: '2026-12-10',      // YYYY-MM-DD
   time: '19:00',           // 24h
-  endTime: '23:00',        // used for the calendar file
+  endTime: '23:59',        // used for the calendar file
   timeZone: 'Africa/Cairo',
   utcOffset: '+02:00',     // Cairo winter = +02:00, summer (DST) = +03:00
 
   venue: {
-    name: 'Police Club',
-    city: 'Cairo',
+    name: 'VENUE LOTUS ballrooms Police Club',
+    city: 'Alexandria',
     country: 'Egypt',
     mapUrl: 'https://share.google/2Ec22XqKu1g1cFdIp',
   },
@@ -34,7 +34,7 @@ export const wedding = {
   introPoster: 'envelope-poster.jpg',   // first frame, shown instantly before the video loads
 
   // Must match the GitHub repo name: '/<repo-name>/'  (used by vite.config.js and local images)
-  basePath: '/shehab-heba-wedding/',
+  basePath: '/ahmed-sara-wedding/',
 }
 
 // ---------- Derived (don't edit) ----------
@@ -84,12 +84,21 @@ export const rsvp = {
   ],
 }
 
+// ---------- Order of the Day ----------
+// time  = الوقت | title = العنوان الرئيسي | lines = أسطر إضافية تحت العنوان (اختياري)
+export const schedule = [
+  { time: '6:00 PM',  title: 'RECEPTION',             lines: ['WELCOME DRINKS & GUEST ARRIVAL'] },
+  { time: '7:00 PM',  title: 'ZAFFA & ENTERTAINMENT', lines: ['& MARRIAGE CEREMONY'] },
+  { time: '9:00 PM',  title: 'DINNER' },
+  { time: '10:00 PM', title: 'PARTY & ENTERTAINMENT' },
+]
+
 // ---------- Texts ----------
 export const text = {
   // Header navigation
   navStory: 'Our Story',
   navDetails: 'The Day',
-  navGallery: 'Gallery',
+  navGallery: 'Schedule',
   navRsvp: 'RSVP',
   musicOn: 'Music on',
   musicOff: 'Music off',
@@ -133,15 +142,9 @@ export const text = {
   venuePhotoLabel: 'THE CELEBRATION',
   venuePhotoTitle: ['One evening.', 'A lifetime of memories.'],
 
-  // Gallery
-  galleryEyebrow: 'MOMENTS WE LOVE',
-  galleryTitle: ['Our little', 'collection.'],
-  gallerySub: 'A few romantic details to set the mood for our day.',
-  galleryNote:
-    'These are sample photographs for the design. Replace them with Shehab and Heba’s own photos whenever ready.', // set to '' to hide
-  viewPhoto: 'View photo',
-  closePhoto: 'Close photo',
-  photoViewer: 'Photo viewer',
+  // Order of the Day
+  galleryTitle: ['Order of the Day'],
+  gallerySub: 'WHAT WE HAVE PLANNED FOR YOU',
 
   // RSVP
   rsvpEyebrow: 'KINDLY REPLY',
@@ -185,20 +188,10 @@ export const images = {
   rsvp: u('photo-1529636798458-92182e662485', 1200),
 
   // WhatsApp / Facebook preview image. MUST be a full https:// URL (not local()).
-  // After deploy you can use: 'https://<username>.github.io/shehab-heba-wedding/images/og.jpg'
+  // After deploy you can use: 'https://<username>.github.io/ahmed-sara-wedding/images/og.jpg'
   og: u('photo-1519741497674-611481863552', 1200, 85),
 }
 
 // Example with your own photos:
 // export const images = { cover: local('cover.jpg'), hero: local('hero.jpg'), ... og: 'https://...' }
 void local // silences "unused" warnings until you use it
-
-// className: '' | 'photo-tall' | 'photo-wide'
-export const photos = [
-  { src: u('photo-1519741497674-611481863552', 1000), alt: 'Romantic wedding table with warm lights', className: 'photo-tall' },
-  { src: u('photo-1523438885200-e635ba2c371e', 900), alt: 'Elegant wedding flowers and details', className: '' },
-  { src: u('photo-1511285560929-80b456fea0bc', 900), alt: 'Wedding celebration with guests', className: '' },
-  { src: u('photo-1519225421980-715cb0215aed', 900), alt: 'Romantic floral wedding arrangement', className: 'photo-wide' },
-  { src: u('photo-1537633552985-df8429e8048b', 900), alt: 'Wedding couple holding hands', className: '' },
-  { src: u('photo-1465495976277-4387d4b0e4a6', 900), alt: 'Outdoor wedding dinner under lights', className: '' },
-]
