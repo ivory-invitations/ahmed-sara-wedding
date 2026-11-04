@@ -56,6 +56,34 @@ export const display = {
 display.numeric = `${display.day} · ${display.monthNum} · ${display.year}`
 display.dotted = `${display.day}.${display.monthNum}.${display.year}`
 
+// ---------- RSVP form ----------
+// A custom form that submits straight to YOUR Google Form, so replies still land in the
+// form's "Responses" tab / Google Sheet. The URL is derived from wedding.rsvpFormUrl.
+//
+// 1) Each `entry` must be the real id of the matching Google Form question (looks like entry.1234567890).
+//    How to get them: Google Form -> ⋮ menu -> "Get pre-filled link" -> fill dummy answers
+//    -> "Get link" -> paste the link into the chat (or read the entry.XXXX=... parts yourself).
+// 2) For `choice` and `select` fields, each `value` must match the option text in the Google Form EXACTLY.
+// 3) Until every entry id is real and no option value says REPLACE, the site safely falls back to the embedded Google Form.
+export const rsvp = {
+  action: wedding.rsvpFormUrl.replace(/\/viewform.*$/, '/formResponse'),
+  fields: [
+    { key: 'name', type: 'text', label: 'Your name', placeholder: 'Full name', entry: 'entry.1498135098', required: true },
+    {
+      key: 'attending', type: 'choice', label: 'Will you attend?', entry: 'entry.877086558', required: true,
+      options: [
+        // label = what guests see | value = EXACT option text in the Google Form (note: it has two spaces after the comma)
+        { label: 'Yes, I’ll be there', value: "Yes,  I'll be there" },
+        // TODO: paste the exact text of the "No" option from your Google Form into `value`.
+        // While it still says REPLACE, the site keeps showing the embedded Google Form (so nothing gets lost).
+        { label: 'Sorry, I can’t make it', value: "Sorry, can't make it" },
+      ],
+    },
+    { key: 'guests', type: 'select', label: 'Number of guests (including you)', entry: 'entry.1424661284', required: true, options: ['1', '2', '3', '4', '5'] },
+    { key: 'message', type: 'textarea', label: 'A message for the couple (optional)', placeholder: 'Write something sweet…', entry: 'entry.2606285' },
+  ],
+}
+
 // ---------- Texts ----------
 export const text = {
   // Header navigation
@@ -121,6 +149,12 @@ export const text = {
   rsvpIntro: 'Please let us know if you can make it. We’d love to celebrate with you.',
   rsvpFoot: 'Thank you for being part of our story.',
   rsvpLoading: 'Loading RSVP form…',
+  rsvpSubmit: 'Send RSVP',
+  rsvpSending: 'Sending…',
+  rsvpError: 'Something went wrong. Please check your connection and try again.',
+  rsvpSentTitle: 'Thank you!',
+  rsvpSentText: 'Your reply has been received. We can’t wait to celebrate with you.',
+  rsvpSendAnother: 'Send another reply',
 
   // Footer
   footerEyebrow: 'WITH LOVE, ALWAYS',

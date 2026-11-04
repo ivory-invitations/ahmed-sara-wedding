@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { CalendarDays, MapPin, Music2, VolumeX, Heart, ArrowDown, ExternalLink } from 'lucide-react'
 
 import { wedding, photos, images, text, display, startISO, endISO } from './wedding.config.js'
+import RsvpForm from './RsvpForm.jsx'
 
 function getCountdown() {
   const target = new Date(startISO).getTime()
@@ -186,7 +187,7 @@ function App() {
     <section className="rsvp-section" id="rsvp">
       <div className="rsvp-photo"><img src={images.rsvp} alt={text.altRsvp}/></div>
       <div className="rsvp-panel"><p className="eyebrow">{text.rsvpEyebrow}</p><h2>{text.rsvpTitle[0]} <em>{text.rsvpTitle[1]}</em></h2><p className="rsvp-intro">{text.rsvpIntro}</p>
-        <div className="rsvp-embed-wrap"><iframe className="rsvp-embed" src={wedding.rsvpFormUrl} title={`${wedding.groom} and ${wedding.bride} wedding RSVP form`} loading="lazy">{text.rsvpLoading}</iframe></div>
+        <RsvpForm />
         <p className="rsvp-foot">{text.rsvpFoot}</p>
       </div>
     </section>
