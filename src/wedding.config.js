@@ -89,7 +89,7 @@ export const rsvp = {
 export const schedule = [
   { time: '6:00 PM',  title: 'RECEPTION',             lines: ['WELCOME DRINKS & GUEST ARRIVAL'] },
   { time: '7:00 PM',  title: 'ZAFFA & ENTERTAINMENT', lines: ['& MARRIAGE CEREMONY'] },
-  { time: '9:00 PM',  title: 'DINNER' },
+  { time: '9:30 PM',  title: 'DINNER' },
   { time: '10:00 PM', title: 'PARTY & ENTERTAINMENT' },
 ]
 
