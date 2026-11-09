@@ -197,7 +197,7 @@ export const images = {
   cover: u('photo-1490750967868-88aa4486c946', 1800, 90),
   hero: u('photo-1519741497674-611481863552', 2200, 90),
   countdown: u('photo-1478146896981-b80fe463b330', 2000),
-  venue: u('photo-1519167758481-83f550bb49b3', 1800),
+  venue: `${wedding.basePath}venue.jpeg`,
   rsvp: u('photo-1529636798458-92182e662485', 1200),
 
   // WhatsApp / Facebook preview image. MUST be a full https:// URL (not local()).
