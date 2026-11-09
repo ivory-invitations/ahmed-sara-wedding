@@ -26,7 +26,7 @@ export const wedding = {
 
   // File inside /public, written WITHOUT a leading slash (public/music.mp3 -> 'music.mp3').
   // Empty string = music buttons are hidden.
-  musicUrl: 'music.mp3',
+  musicUrl: '',
 
   // Opening video (envelope). Files inside /public, no leading slash.
   // Empty introVideo = the old CSS envelope is used instead (also used if the video fails to load).
